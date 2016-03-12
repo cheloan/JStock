@@ -7,12 +7,12 @@ import util.HashCodeBuilder;
 
 import util.DateUtil;
 
-public class CashFlow implements Comparable<CashFlow>, Serializable{
+public class CashFlow implements Comparable<CashFlow>, Serializable, Cloneable{
 
 	private static final long serialVersionUID = 1L;
 	
-	private Date date;
-	private double amount;
+	protected Date date;
+	protected double amount;
 	
 	public CashFlow(final Date date,
 			        final double amount){
@@ -97,7 +97,7 @@ public class CashFlow implements Comparable<CashFlow>, Serializable{
 	
 	@Override
     public String toString(){
-    	return new StringBuilder(DateUtil.toString(date)).append("\t").append(amount).toString();
+    	return new StringBuilder(DateUtil.toString(date())).append("\t").append(amount()).toString();
     }
     
     @Override
